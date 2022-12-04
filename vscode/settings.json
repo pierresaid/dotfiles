@@ -1,0 +1,57 @@
+{
+    // Theme
+    "workbsench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+      "terminal.background": "#0000",
+      "panel.background": "#000000",
+      "panelTitle.inactiveForeground": "#dddd",
+      "editor.background": "#000000",
+      "input.background": "#000000",
+      "input.border": "#dddd",
+      "activityBar.background": "#000000",
+      "activityBar.border": "#dddd",
+      "panel.border": "#ddd",
+      "sideBar.border": "#dddd",
+      "sideBar.background": "#000000",
+      "statusBar.background": "#000000",
+      "statusBar.border": "#dddd",
+      "tab.border": "#dddd",
+      "tab.inactiveBackground": "#000000",
+      "tab.activeBorder": "#000000",
+      "tab.activeBorderTop": "#8f8f8f",
+      "editorGroupHeader.tabsBackground": "#000000",
+      "editorGroupHeader.tabsBorder": "#ddd",
+      "sideBarSectionHeader.border": "#ddd",
+      "sideBarSectionHeader.background": "#000000",
+      "titleBar.border": "#ddd",
+      "titleBar.activeBackground": "#000000",
+      "sash.hoverBorder": "#dddd"
+    },
+    "window.titleBarStyle": "custom",
+    "breadcrumbs.enabled": true,
+    "terminal.integrated.profiles.windows": {
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell"
+      },
+      "Command Prompt": {
+        "path": [
+          "${env:windir}\\Sysnative\\cmd.exe",
+          "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+      },
+      "Git Bash": {
+        "source": "Git Bash"
+      },
+      "Ubuntu-22.04 (WSL)": {
+        "path": "C:\\WINDOWS\\System32\\wsl.exe",
+        "args": [
+          "-d",
+          "Ubuntu-22.04"
+        ]
+      }
+    },
+    "terminal.integrated.defaultProfile.windows": "Ubuntu-22.04 (WSL)"
+  }

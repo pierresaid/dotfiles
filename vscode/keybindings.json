@@ -1,0 +1,47 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+l",
+        "command": "editor.action.transformToLowercase"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.terminal.new"
+    },
+    {
+        "key": "ctrl+shift+oem_3",
+        "command": "-workbench.action.terminal.new"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalIsOpen"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalIsOpen"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "workbench.action.terminal.resizePaneDown",
+        "when": "terminalIsOpen"
+    },
+    {
+        "key": "ctrl+shift+up",
+        "command": "workbench.action.terminal.resizePaneUp",
+        "when": "terminalIsOpen"
+    }
+]
