@@ -18,6 +18,8 @@ return
 Run, "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 return
 
+Ins::Del
+
 # ctrl+alt+n create guid
 ^!g::
 myvar := ComObjCreate("Scriptlet.TypeLib").GUID
