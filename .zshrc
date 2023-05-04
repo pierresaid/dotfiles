@@ -17,3 +17,4 @@ alias ddd=" cd /mnt/c/Users/saidp/Desktop/work"
 alias gs='git status'
 alias ni='npm install'
 alias nt='explorer.exe .'
+alias vtest='dd; ~/scripts/init-vue.sh'
