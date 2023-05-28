@@ -8,6 +8,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Run, wt
 return
 
+; ctrl+alt+p launch terminal with powershell
+^!p::
+Run, wt powershell
+return
+
 ; ctrl+alt+c launch vscode
 ^!c::
 Run, "C:\Users\saidp\AppData\Local\Programs\Microsoft VS Code\Code.exe"
