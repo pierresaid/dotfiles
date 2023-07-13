@@ -20,7 +20,7 @@ return
 
 ; ctrl+alt+n launch browser
 ^!n::
-Run, "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+Run, "C:\Program Files\Google\Chrome\Application\chrome.exe"
 return
 
 ; ctrl+alt+g create guid
