@@ -18,7 +18,8 @@
     },
     {
         "key": "ctrl+t",
-        "command": "workbench.action.terminal.new"
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus && terminalIsOpen"
     },
     {
         "key": "ctrl+shift+oem_3",
