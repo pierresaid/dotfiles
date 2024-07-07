@@ -7,7 +7,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=~/.npm-global/bin:$PATH
 LS_COLORS="ow=94;40:ex=0;40" # Colors for terminal in wsl
 
-alias la="ls -la"
+alias la="ls -lah"
 alias q="cd .."
 alias ll="clear; pwd; la; pwd"
 alias ne="emacs -nw"
