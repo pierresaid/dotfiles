@@ -11,7 +11,6 @@ alias la="ls -lah"
 alias q="cd .."
 alias ll="clear; pwd; la; pwd"
 alias ne="emacs -nw"
-alias cl="rm *~; rm .*~"
 alias dd="cd ~/work"
 alias ddd=" cd /mnt/c/Users/saidp/Desktop/work"
 alias gs='git status'
