@@ -6,24 +6,23 @@
     Run("wt")
 }
 
-; ctrl+alt+p launch terminal with powershell
+; ctrl+alt+p launch terminal with PowerShell
 ^!p::
 {
     Run("wt powershell")
 }
 
-; ctrl+alt+c launch vscode
+; ctrl+alt+c launch VS Code
 ^!c::
 {
-    Run("C:\Users\Pierre Said\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+    Run(EnvGet("LOCALAPPDATA") "\Programs\Microsoft VS Code\Code.exe")
 }
 
 ; ctrl+alt+n launch browser
 ^!n::
 {
-    Run("C:\Program Files\Google\Chrome\Application\chrome.exe")
+    Run("chrome.exe")
 }
-
 
 GUID()
 { 
@@ -40,18 +39,20 @@ RemoveToolTip() {
     ToolTip()
 }
 
+; Open ww.md in VS Code (Fixed)
 ^!d::
 {
-    Run("C:\Users\Pierre Said\AppData\Local\Programs\Microsoft VS Code\Code.exe", "C:\Users\Pierre Said\Desktop\work\ww.md")
+    filePath := EnvGet("USERPROFILE") "\Desktop\work\ww.md"
+    Run(Format('"{}" "{}"', EnvGet("LOCALAPPDATA") "\Programs\Microsoft VS Code\Code.exe", filePath))
 }
 
-; disable win space
+; disable win+space
 #Space::
 {
     return
 }
 
-; remap insert to suppr
+; remap insert to delete
 Ins::
 {
     Send("{Del}")
