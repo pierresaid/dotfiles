@@ -46,6 +46,11 @@ RemoveToolTip() {
     Run(Format('"{}" "{}"', EnvGet("LOCALAPPDATA") "\Programs\Microsoft VS Code\Code.exe", filePath))
 }
 
+^!h:: {
+    output := FormatTime("dd/MM/yy HH:mm")
+    A_Clipboard := output
+}
+
 ; disable win+space
 #Space::
 {
