@@ -51,6 +51,12 @@ RemoveToolTip() {
     A_Clipboard := output
 }
 
+^!m::
+{
+    A_Clipboard := "said.pierre.emler@gmail.com"
+}
+
+
 ; disable win+space
 #Space::
 {
@@ -62,3 +68,4 @@ Ins::
 {
     Send("{Del}")
 }
+
