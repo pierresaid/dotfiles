@@ -44,5 +44,15 @@
         "key": "ctrl+shift+up",
         "command": "workbench.action.terminal.resizePaneUp",
         "when": "terminalIsOpen"
+    },
+        {
+        "key": "ctrl+numpad_divide",
+        "command": "gitlens.diffWithPrevious:editor/title",
+        "when": "config.gitlens.menus.editorGroup.compare && resource in 'gitlens:tabs:tracked'"
+    },
+    {
+        "key": "ctrl+numpad_multiply",
+        "command": "gitlens.diffWithNext:editor/title",
+        "when": "config.gitlens.menus.editorGroup.compare && resource in 'gitlens:tabs:tracked'"
     }
 ]
