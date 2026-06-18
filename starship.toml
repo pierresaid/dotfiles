@@ -1,308 +1,72 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-[aws]
-symbol = " "
-
-[azure]
-symbol = " "
-
-[battery]
-full_symbol = "󰁹 "
-charging_symbol = "󰂄 "
-discharging_symbol = "󰂃 "
-unknown_symbol = "󰂑 "
-empty_symbol = "󰂎 "
-
-[buf]
-symbol = " "
-
-[bun]
-symbol = " "
-
-[c]
-symbol = " "
-
-[cpp]
-symbol = " "
-
-[cmake]
-symbol = " "
-
-[cobol]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[container]
-symbol = " "
-
-[crystal]
-symbol = " "
-
-[dart]
-symbol = " "
-
-[deno]
-symbol = " "
-
-[direnv]
-symbol = " "
+format = """
+[░▒▓](#abb2bf)\
+[ 🕀 ](bg:#abb2bf fg:#1e2127)\
+[](bg:#61afef fg:#abb2bf)\
+$directory\
+[](fg:#61afef bg:#3e4451)\
+$git_branch\
+$git_status\
+[](fg:#3e4451 bg:#2c313a)\
+$nodejs\
+$bun\
+$rust\
+$golang\
+$php\
+[](fg:#2c313a bg:#21252b)\
+$time\
+[ ](fg:#21252b)\
+\n$character"""
 
 [directory]
-read_only = " 󰌾"
+style = "fg:#1e2127 bg:#61afef"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
-[docker_context]
-symbol = " "
-
-[dotnet]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[erlang]
-symbol = " "
-
-[fennel]
-symbol = " "
-
-[fortran]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
-
-[gcloud]
-symbol = "󱇶 "
-
-[gleam]
-symbol = " "
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
 [git_branch]
-symbol = " "
+symbol = ""
+style = "bg:#3e4451"
+format = '[[ $symbol $branch ](fg:#61afef bg:#3e4451)]($style)'
 
-[git_commit]
-tag_symbol = '  '
-
-[golang]
-symbol = " "
-
-[gradle]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[helm]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
-
-[kubernetes]
-symbol = "󱃾 "
-
-[lua]
-symbol = " "
-
-[maven]
-symbol = " "
-
-[memory_usage]
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[mojo]
-symbol = "󰈸 "
-
-[nats]
-symbol = " "
-
-[netns]
-symbol = "󰛳 "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
+[git_status]
+style = "bg:#3e4451"
+format = '[[($all_status$ahead_behind )](fg:#61afef bg:#3e4451)]($style)'
 
 [nodejs]
-symbol = " "
+symbol = ""
+style = "bg:#2c313a"
+format = '[[ $symbol ($version) ](fg:#61afef bg:#2c313a)]($style)'
 
-[ocaml]
-symbol = " "
-
-[odin]
-symbol = "󰟢 "
-
-[opa]
-symbol = " "
-
-[openstack]
-symbol = " "
-
-[os.symbols]
-AIX = " "
-AlmaLinux = " "
-Alpaquita = " "
-Alpine = " "
-ALTLinux = " "
-Amazon = " "
-Android = " "
-AOSC = " "
-Arch = " "
-Artix = " "
-Bluefin = " "
-CachyOS = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Elementary = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = " "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = " "
-InstantOS = " "
-Ios = "󰀷 "
-Kali = " "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-Nobara = " "
-OpenBSD = " "
-OpenCloudOS = " "
-openEuler = " "
-openSUSE = " "
-OracleLinux = "󰺡 "
-PikaOS = " "
-Pop = " "
-Raspbian = " "
-Redhat = "󱄛 "
-RedHatEnterprise = "󱄛 "
-Redox = "󰀘 "
-RockyLinux = " "
-Solus = " "
-SUSE = " "
-Ubuntu = " "
-Ultramarine = " "
-Unknown = " "
-Uos = " "
-Void = " "
-Windows = "󰍲 "
-Zorin = " "
-
-[package]
-symbol = "󰏗 "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
-
-[pixi]
-symbol = "󰏗 "
-
-[pulumi]
-symbol = " "
-
-[purescript]
-symbol = " "
-
-[python]
-symbol = " "
-
-[raku]
-symbol = "󱖊 "
-
-[red]
-symbol = "󱍼 "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
+[bun]
+symbol = ""
+style = "bg:#2c313a"
+format = '[[ $symbol ($version) ](fg:#61afef bg:#2c313a)]($style)'
 
 [rust]
-symbol = "󱘗 "
+symbol = ""
+style = "bg:#2c313a"
+format = '[[ $symbol ($version) ](fg:#61afef bg:#2c313a)]($style)'
 
-[scala]
-symbol = " "
+[golang]
+symbol = ""
+style = "bg:#2c313a"
+format = '[[ $symbol ($version) ](fg:#61afef bg:#2c313a)]($style)'
 
-[shlvl]
-symbol = "󰹍 "
+[php]
+symbol = ""
+style = "bg:#2c313a"
+format = '[[ $symbol ($version) ](fg:#61afef bg:#2c313a)]($style)'
 
-[singularity]
-symbol = " "
-
-[solidity]
-symbol = " "
-
-[spack]
-symbol = " "
-
-[status]
-symbol = " "
-
-[sudo]
-symbol = " "
-
-[swift]
-symbol = " "
-
-[terraform]
-symbol = " "
-
-[vlang]
-symbol = " "
-
-[typst]
-symbol = " "
-
-[vagrant]
-symbol = " "
-
-[xmake]
-symbol = " "
-
-[zig]
-symbol = " "
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#21252b"
+format = '[[  $time ](fg:#828997 bg:#21252b)]($style)'
