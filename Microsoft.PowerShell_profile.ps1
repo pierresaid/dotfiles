@@ -61,13 +61,43 @@ $__zx = Get-CachedToolInit 'zoxide'   (Join-Path $__cacheDir 'zoxide.ps1')   { z
 if ($__zx) { . $__zx }
 Remove-Variable __cacheDir, __sp, __zx -ErrorAction SilentlyContinue
 
-# ── fnm (Fast Node Manager) — per-project Node version switching ──────────
-#    NOT cached (unlike starship/zoxide): `fnm env` mints a per-shell multishell
-#    path unique to each session, so it must run fresh. One ~10ms call at start.
-#    --use-on-cd wraps `cd` to auto-switch Node when you enter a folder with a
-#    .nvmrc / .node-version / package.json.
+# ── fnm (Fast Node Manager) — SAFE per-project Node switching ─────────────
+#    `fnm env` (WITHOUT --use-on-cd) just sets up the env; it mints a per-shell
+#    multishell path, so it must run fresh each session (can't be cached).
+#    Then we add our OWN auto-switch that NEVER prompts or errors — cd stays safe:
+#      • switches silently if the pinned version is already installed
+#      • ignores malformed / non-version files (e.g. a stray .npmrc in .nvmrc)
+#      • if a valid version isn't installed, prints ONE dim hint (no prompt)
 if (Get-Command fnm -CommandType Application -ErrorAction SilentlyContinue) {
-    fnm env --use-on-cd | Out-String | Invoke-Expression
+    fnm env | Out-String | Invoke-Expression
+
+    function global:__Invoke-FnmAutoSwitch {
+        try {
+            if ($PWD.Path -eq $global:__fnmDir) { return }   # only act when the dir changes
+            $global:__fnmDir = $PWD.Path
+            $vf = @('.node-version','.nvmrc') |
+                  ForEach-Object { Join-Path $PWD.Path $_ } |
+                  Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1
+            if (-not $vf) { return }
+            $ver = (Get-Content -LiteralPath $vf -TotalCount 1 -ErrorAction Stop).Trim()
+            if ($ver -notmatch '^v?\d+(\.\d+){0,2}$') { return }   # not a version -> ignore
+            $bare = $ver.TrimStart('v')
+            if ((& fnm list 2>$null) -match [regex]::Escape($bare)) {
+                & fnm use $ver --silent-if-unchanged 2>$null | Out-Null
+            } else {
+                Write-Host "fnm: this folder wants Node $bare (not installed) — run 'fnm install' to use it" -ForegroundColor DarkGray
+            }
+        } catch { }   # auto-switch must NEVER break the prompt
+    }
+
+    if (-not $global:__fnmWrapped) {
+        $global:__fnmPrevPrompt = $function:prompt           # chain after starship+zoxide
+        function global:prompt {
+            __Invoke-FnmAutoSwitch
+            if ($global:__fnmPrevPrompt) { & $global:__fnmPrevPrompt } else { "PS $($PWD.Path)> " }
+        }
+        $global:__fnmWrapped = $true
+    }
 }
 
 # ── Prettier `ls` via eza (Rust binary — zero startup cost) ──────────────
