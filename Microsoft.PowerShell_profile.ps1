@@ -121,8 +121,10 @@ function ..  { Set-Location .. }                        # up one directory
 function q   { Set-Location .. }                        # up one directory (same as ..)
 function dd  { Set-Location "$HOME\Desktop\work" }      # jump to your work folder
 function gs  { git status @args }                       # git status
-function nd  { npm run dev @args }                       # npm run dev
-function nt  { explorer . }                              # open current folder in Explorer
+function gl  { git pull @args }                         # git pull
+function gp  { git push @args }                         # git push
+function nd  { npm run dev @args }                      # npm run dev
+function nt  { explorer . }                             # open current folder in Explorer
 function pp  { $p = (Get-Location).Path; Set-Clipboard $p; Write-Host "Copied: $p" -ForegroundColor DarkGray }  # copy current path to clipboard
 if (Test-Path Alias:ni) { Remove-Item Alias:ni -Force } # ni is a built-in alias to New-Item
 function ni  { npm install @args }                       # npm install
