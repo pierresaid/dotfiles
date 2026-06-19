@@ -9,7 +9,7 @@
 ; ctrl+alt+p launch terminal with PowerShell
 ^!p::
 {
-    Run("wt powershell")
+    Run('wt -d "' EnvGet("USERPROFILE") '" pwsh')
 }
 
 ; ctrl+alt+c launch VS Code
@@ -22,6 +22,12 @@
 ^!n::
 {
     Run("chrome.exe")
+}
+
+; ctrl+alt+e launch Everything search
+^!e::
+{
+    Run("C:\Program Files\Everything\Everything.exe")
 }
 
 GUID()
@@ -69,3 +75,6 @@ Ins::
     Send("{Del}")
 }
 
+#+F23::RControl
+
+^!w::Run(EnvGet("USERPROFILE") "\Desktop\work")
