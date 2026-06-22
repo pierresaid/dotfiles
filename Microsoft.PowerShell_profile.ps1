@@ -123,6 +123,8 @@ function dd  { Set-Location "$HOME\Desktop\work" }      # jump to your work fold
 function gs  { git status @args }                       # git status
 function gl  { git pull @args }                         # git pull
 function gp  { git push @args }                         # git push
+function gd  { git diff @args }                         # git diff
+function ga  { git add @args }                          # git add
 function nd  { npm run dev @args }                      # npm run dev
 function nt  { explorer . }                             # open current folder in Explorer
 function pp  { $p = (Get-Location).Path; Set-Clipboard $p; Write-Host "Copied: $p" -ForegroundColor DarkGray }  # copy current path to clipboard
